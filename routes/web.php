@@ -1,18 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PembayaranController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/pembayaran', [PembayaranController::class, 'index']);
+Route::get('/pembayaran/create', [PembayaranController::class, 'create']);
+Route::get('/pembayaran/{id}', [PembayaranController::class, 'show']);
+Route::get('/pembayaran/{id}/edit', [PembayaranController::class, 'edit']);
+Route::delete('/pembayaran/{id}', [PembayaranController::class, 'destroy']);
